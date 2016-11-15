@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>热身</title>
+</head>
+<body>
+  <p id="p1">我是第一段文字</p>
+  <p id="p2">我是第二段文字</p>
+  
+  <script type="text/javascript">
+ //basic
+ 'use strict';
+console.log('我不想执行');
+console.log('我也不想执行');
+var i = "1";
+console.log(i);
+var j = 100;
+console.log(j);
+var s = "I\'m t\'s"
+console.log(s);
+s = (`nihao 
+	woshi 
+	    ni da
+	    ye
+	`);
+console.log(s);
+
+  </script>
+
+ <script type="text/javascript">
+var name = '小明';
+var age = 20;
+console.log(`你好, ${name}, 你今年${age}岁了!`);
+</script>
+
+<script type="text/javascript">
+    var xiaoming = {
+    name: '小明',
+    birth: 1990,
+    school: 'No.1 Middle School',
+    height: 1.70,
+    weight: 65,
+    score: null,
+    //test-dad: dad
+    "test-data": 'dad'
+};
+console.log(xiaoming.name + " " + xiaoming["test-data"]);
+xiaoming.test;
+console.log('test' in xiaoming);
+xiaoming.test = true;
+console.log(xiaoming.test);
+console.log('test' in xiaoming);
+delete xiaoming.test;
+console.log('test' in xiaoming);
+var isName = 'name' in xiaoming;
+console.log("name is " + isName);
+delete xiaoming.name;
+isName = 'name' in xiaoming;
+console.log("name is " + isName);
+
+console.log(xiaoming.hasOwnProperty('weight')); 
+
+var age =100
+if (age >= 6) {
+    console.log('teenager');
+} else if (age >= 18) {
+    console.log('adult');
+} else {
+    console.log('kid');
+}
+
+
+var x = 1;
+var i;
+for (i=1;i<=10;i++){
+    x = x * i;
+    console.log(i);
+    console.log(x);
+}
+
+if (x === 3628800) {
+    console.log('1 x 2 x 3 x ... x 10 = ' + x);
+}
+else {
+    console.log('计算错误');
+}
+</script>
+
+<script type="text/javascript">
+'use strict';
+var m = new Map();
+var s = new Set();
+
+var names = ['Michael', 'Bob', 'Tracy'];
+var scores = [95, 75, 85];
+//Map
+var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);
+m.get('Michael'); // 95
+console.log(m.get('Michael')); // 95
+
+var m = new Map(); // 空Map
+m.set('Adam', 67); // 添加新的key-value
+m.set('Bob', 59);
+m.has('Adam'); // 是否存在key 'Adam': true
+m.get('Adam'); // 67
+m.delete('Adam'); // 删除key 'Adam'
+m.get('Adam'); // undefined
+
+//Set
+var s1 = new Set(); // 空Set
+var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+
+var s = new Set([1, 2, 3, 3, '3']);
+console.log(s); // Set {1, 2, 3, "3"}
+
+//iterable
+var a = ['A', 'B', 'C'];
+var s = new Set(['A', 'B', 'C']);
+var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+for (var x of a) { // 遍历Array
+    console.log(x);
+}
+for (var x of s) { // 遍历Set
+    console.log(x);
+}
+for (var x of m) { // 遍历Map
+    console.log(x[0] + '=' + x[1]);
+}
+</script>
+
+</body>
+</html>

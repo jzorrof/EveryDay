@@ -39,6 +39,167 @@
         return true;
     };
     console.log(sum(1,2,3));
+
+//method
+    var xiaoming = {
+    name: '小明',
+    birth: 1990,
+    age: function () {
+        var y = new Date().getFullYear();
+        return y - this.birth;
+    }
+};
+console.log(xiaoming.age);
+console.log(xiaoming.age());
+
+'use strict';
+var getAge = function(a){
+    var getA = a;
+         var y = new Date().getFullYear();
+        return y - this.birth + a;
+}
+
+var fanzhong = {
+    name: 'fanzhong',
+    birth: 1982,
+    age: getAge,
+    h: 180,
+    height: function () {
+        var that = this;
+        var getHeight = function () {
+            return that.h;
+        }
+        return getHeight();
+    }
+};
+
+console.log(fanzhong.age);
+console.log(fanzhong.age());
+console.log(getAge());
+console.log(fanzhong.height());
+//apply
+var ages= getAge.apply(fanzhong, [1]);
+console.log(ages);
+ages = getAge.call(fanzhong, 2);
+console.log(ages);
+
+var count = 0;
+var oldParseInt = parseInt; // 保存原函数
+
+window.parseInt = function () {
+    count += 1;
+    return oldParseInt.apply(null, arguments); // 调用原函数
+};
+
+// 测试:
+parseInt('10');
+parseInt('20');
+parseInt('30');
+count; // 3
+
+//高阶函数
+var f = Math.abs;
+var a1= 1;
+var b2 = -12;
+function add(a, b ,f) {
+    return f(a) + f(b)
+    // body...
+}
+
+var a = add(a1, b2, f);
+console.log(a);
+
+//map
+function pow(x) {
+    return x * x;
+}
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr.map(pow)); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr.map(String)); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+//reduce
+var arr = [1, 3, 5, 7, 9];
+var add = arr.reduce(function (x, y) {
+    return x + y;
+}); // 25
+console.log(add);
+
+function product(arr) {
+    return arr.reduce(function(x,y) {
+        return x*y
+    });
+};
+var arr=[1, 2, 3, 4, 5];
+console.log(product(arr));
+
+var arr = [1, 3, 5, 7, 9];
+var result = arr.reduce(function (x, y) {
+    return x * 10 + y;
+}); // 13579
+console.log(result);
+
+//filter
+var arr = [1, 2, 4, 5, 6, 9, 10, 15];
+var r = arr.filter(function (x) {
+    return x % 2 !== 0;
+});
+console.log(r); // [1, 5, 9, 15]
+
+var arr=[1231,3,5,4,5, 6,121,321];
+var result = arr.filter(function(x){
+    var a;
+    var b;
+    for(var i = 2; i < x; ++i){
+        if(x%i === 0){
+            return false;
+        }
+    }
+    return true;
+    });
+console.log(result);
+
+//sort
+var arr = ['Google', 'apple', 'Microsoft'];
+var sortarry=arr.sort(function (s1, s2) {
+    x1 = s1.toUpperCase();
+    x2 = s2.toUpperCase();
+    if (x1 < x2) {
+        return -1;
+    }
+    if (x1 > x2) {
+        return 1;
+    }
+    return 0;
+}); // ['apple', 'Google', 'Microsoft']
+console.log(sortarry);
+
+var arr = [10, 20, 1, 2];
+var getarry = arr.sort(function (x, y) {
+    if (x < y) {
+        return -1;
+    }
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+}); // [1, 2, 10, 20]
+console.log(getarry);
+
+//函数作为返回值
+function lazy_sum(arr) {
+    var sum = function () {
+        return arr.reduce(function (x, y) {
+            return x + y;
+        });
+    }
+    return sum;
+}
+
+var f = lazy_sum([1,2,3,4,5,6,7]);
+console.log(f);
+console.log(f());
 </script>
 
 </body>

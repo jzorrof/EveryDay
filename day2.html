@@ -200,6 +200,85 @@ function lazy_sum(arr) {
 var f = lazy_sum([1,2,3,4,5,6,7]);
 console.log(f);
 console.log(f());
+
+//箭头函数
+x => x * x;
+
+// 两个参数:
+(x, y) => x * x + y * y;
+
+// 无参数:
+() => 3.14;
+
+// 可变参数:
+(x, y, ...rest) => {
+    var i, sum = x + y;
+    for (i=0; i<rest.length; i++) {
+        sum += rest[i];
+    }
+    return sum;
+};
+
+var fn = (x, y, ...rest) => {
+    console.log(x);
+    console.log(y);
+    console.log(rest);
+    return true;
+};
+
+var a = fn(1,2, 10, 100, 1000);
+console.log(a);
+
+//generator
+function* foo(x) {
+    yield x + 1;
+    yield x + 2;
+    return x + 3;
+};
+console.log(foo(100));
+console.log(foo(100).next());
+console.log(foo(100).next());
+
+function* fib(max) {
+    var
+        t,
+        a = 0,
+        b = 1,
+        n = 1;
+    while(n < max) {
+        yield a;
+        t = a + b;
+        a = b;
+        b = t;
+        n ++;
+    }
+    return a;
+}
+var f = fib(10);
+console.log(f);
+console.log(f.next());
+console.log(f.next());
+console.log(f.next());
+console.log(f.next());
+console.log(f.next());
+console.log(f.next());
+
+'use strict';
+function* next_id() {
+    var a=1;
+    var b=1
+    while(b<100){
+        yield a;
+        a=a+1;
+        b++;
+    }
+    return a;
+}
+var fn = next_id;
+console.log(next_id());
+console.log(next_id().next());
+console.log(next_id().next());
+console.log(next_id().next());
 </script>
 
 </body>

@@ -33,6 +33,19 @@
         alert('亲爱的，我预定了晚餐，晚上6点在餐厅见！');
     }
 
+    console.log('a b   c'.split(' '));
+    //jsonstringify
+    var xiaoming = {
+    name: '小明',
+    age: 14,
+    gender: true,
+    height: 1.65,
+    grade: null,
+    'middle-school': '\"W3C\" Middle School',
+    skills: ['JavaScript', 'Java', 'Python', 'Lisp']
+};
+var getxiaoming =  JSON.stringify(xiaoming, null, '  ');
+console.log(getxiaoming);
   </script>
  </body>
 </html>

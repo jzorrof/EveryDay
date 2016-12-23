@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象编程</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var Student = {
+            name: 'studentname',
+            height: 1.6,
+            run: function () {
+                console.log("runing ...");
+            }
+        }
+        var Xiaoming = {
+            name: 'Xiaoming'
+        }
+
+        Xiaoming.__proto__ = Student;
+        Xiaoming.run();
+
+        function createStudent(name) {
+            var s = Object.create(Student);
+            s.name=name;
+            return s;
+        }
+
+        var Xiaoming = createStudent('Xiaoming');
+         Xiaoming.run();
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser</title>
+</head>
+<body>
+<script type="text/javascript">
+    console.log('window inner size: ' + window.innerWidth + ' x ' + window.innerHeight);
+
+    console.log('appName = ' + navigator.appName + '\n' +
+      'appVersion = ' + navigator.appVersion + '\n' +
+      'language = ' + navigator.language + '\n' +
+      'platform = ' + navigator.platform + '\n' +
+      'userAgent = ' + navigator.userAgent);
+
+    console.log('Screen size = ' + screen.width + ' x ' + screen.height);
+
+    console.log(location.protocol); // 'http'
+    console.log(location.host); // 'www.example.com'
+    console.log(location.port); // '8080'
+    console.log(location.pathname); // '/path/index.html'
+    console.log(location.search); // '?a=1&b=2'
+    console.log(location.hash);
+
+    if (confirm('重新加载当前页' + location.href + '?')) {
+        location.reload();
+    } else {
+        location.assign('/discuss'); // 设置一个新的URL地址
+    }
+</script>
+</body>
+</html>

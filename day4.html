@@ -28,6 +28,113 @@
 
         var Xiaoming = createStudent('Xiaoming');
          Xiaoming.run();
+
+         function Students(name) {
+             this.name=name;
+             // this.hello=function () {
+             //     console.log("hello " + this.name + '!');
+             // }
+         }
+         Students.prototype.hello=function() {
+             console.log("hello " + this.name + '!');
+         };
+         var xiaoming = new Students("xiaoming");
+         xiaoming.name;
+         xiaoming.hello();
+
+         console.log(xiaoming.constructor === Students.prototype.constructor);
+         console.log(Students.prototype.constructor === Students);
+         console.log(Object.getPrototypeOf(xiaoming) === Students.prototype);
+         console.log(xiaoming instanceof Students);
+
+         console.log(xiaoming.constructor);
+         console.log(Students.prototype.constructor);
+         console.log(Object.getPrototypeOf(xiaoming));
+         console.log(xiaoming instanceof Students);
+        // var xiaoming = students("xiaoming");
+        // xiaoming.name;
+        // xiaoming.hello();
+
+        function Cat(name) {
+            this.name=name;
+        }
+        Cat.prototype.say=function(){
+            return 'Hello, '+this.name+'!';
+        };
+
+        var blackcat = new Cat("KIITTY");
+        
+        console.log(blackcat.say());
+    </script>
+    <script type="text/javascript">
+        function inherits(Child, Parent) {
+            var F = function () {};
+            F.prototype = Parent.prototype;
+            Child.prototype = new F();
+            Child.prototype.constructor = Child;
+        }
+
+        function Student(props) {
+            this.name = props.name || 'Unnamed';
+        }
+        Student.prototype.hello = function () {
+            alert('Hello, ' + this.name + '!');
+        }
+        function PrimaryStudent(props){
+            Student.call(this, props);
+            this.grade = props.grade || 1;
+        }
+
+        // 实现原型继承链:
+        inherits(PrimaryStudent, Student);
+        // 绑定其他方法到PrimaryStudent原型:
+        PrimaryStudent.prototype.getGrade = function () {
+            return this.grade;
+        };
+
+        var xiaoming = new PrimaryStudent({
+            name: '小明',
+            grade: 2
+        });
+        console.log(xiaoming.name); // '小明'
+        console.log(xiaoming.grade); // 2
+    </script>
+    <script type="text/javascript">
+        class Student2 {
+            constructor(name){
+                this.name = name;
+            }
+            hello(){
+                console.log('hello,' + this.name + '!');
+            }
+        }
+        var xiaoming = new Student2('小明');
+        xiaoming.hello();
+
+        class PrimaryStudent2 extends Student{
+            constructor(name, grade){
+                super(name)
+                this.grade = grade;
+            }
+            mygrade(){
+                console.log('my grade is ' + this.grade + '!');
+            }
+        }
+        class Animal {
+            constructor(name) {
+            this.name = name;
+            }
+        }
+
+        class Cat2 extends Animal{
+            constructor(name){
+            super(name);
+        }
+        say(){
+            return `Hello, ${this.name}!`;
+        }
+    }
+
     </script>
 </body>
 </html>

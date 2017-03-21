@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>选择器</title>
+<style type="text/css">
+body{
+    font-size:12px;
+    color:red;  
+}
+h1{
+    font-weight: normal;
+    color: blue;
+}
+/*类选择器*/
+.stress{ /*alotoftimes*/
+    color: green;
+}
+/*ID选择器*/
+#setGreen{
+    color: gray;/*justonece*/
+}
+/*子选择器
+*/
+.food>li{border:1px solid red;}/*添加边框样式（粗细为1px， 颜色为红色的实线）*/
+.first>span{border:1px solid red;}
+/*包含(后代)选择器
+*/
+.food ul{border:1px solid red;}
+/*通用选择器
+*/
+* {font-size: 20px;}
+</style>
+</head>
+<body>
+<p><span id="setGreen">慕课网</span>（IMOOC）是学习编程最简单的免费平台。慕课网提供了丰富的移动端开发、php开发、web前端、html5教程以及css3视频教程等课程资源。它富有交互性及趣味性，并且你可以和朋友一起编程。</p>
+
+
+    <h1>勇气</h1>
+    <p>三年级时，我还是一个<a href="http://www.imooc.com"><span class="stress">胆小如鼠</span></a>的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+    <p>到了三年级下学期时，我们班上了一节公开课，老师提出了一个很简单的问题，班里很多同学都举手了，甚至成绩比我差很多的，也举手了，还说着："我来，我来。"我环顾了四周，就我没有举手。</p>
+    <img src="http://img.mukewang.com/52b4113500018cf102000200.jpg" >
+
+<p class="first">三年级时，<span>我还是一个<span>胆小如鼠</span>的小女孩</span>，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+<h1>食物</h1>
+<ul class="food">
+    <li>水果
+        <ul>
+            <li>香蕉</li>
+            <li>苹果</li>
+            <li>梨</li>
+        </ul>
+    </li>
+    <li>蔬菜
+        <ul>
+            <li>白菜</li>
+            <li>油菜</li>
+            <li>卷心菜</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
